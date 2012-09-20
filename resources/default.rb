@@ -49,8 +49,8 @@ attribute :more_opts, :kind_of => Array, :default => []
 attribute :env, :kind_of => Array, :default => []
 attribute :user, :kind_of => String, :required => true
 attribute :shutdown_wait, :kind_of => String, :default => "5"
-attribute :manage_config_file, :equal_to => [true, false], :default => def false
 attribute :bind_address, :kind_of => String, :default => nil
+attribute :manage_config_file, :equal_to => [true, false], :default => false
 attribute :base, :kind_of => String, :default => ""
   
 end
