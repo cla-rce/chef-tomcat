@@ -156,6 +156,7 @@ catalina_sh() {
 	chown $TOMCAT_USER "$CATALINA_PID" "$CATALINA_BASE"/logs/catalina.out
 	start-stop-daemon --start -b -u "$TOMCAT_USER" -g "$TOMCAT_GROUP" \
 		-c "$TOMCAT_USER" -d "$CATALINA_TMPDIR" -p "$CATALINA_PID" \
+		-k "$TOMCAT_UMASK" \
 		-x /bin/bash -- -c "$AUTHBIND_COMMAND $TOMCAT_SH"
 	status="$?"
 	set +a -e
