@@ -52,6 +52,8 @@ fi
 # Define the tomcat username
 TOMCAT_USER="${TOMCAT_USER:-tomcat}"
 
+TOMCAT_UMASK=022
+
 # Define path to run command that starts application from
 # some crappily written applications use hardcoded relative paths
 INVOKE_PATH=${INVOKE_PATH:-.}
@@ -62,6 +64,8 @@ RETVAL="0"
 if [ -r "/etc/default/${NAME}" ]; then
     . /etc/default/${NAME}
 fi
+
+umask $TOMCAT_UMASK
 
 if [ -z "$CATALINA_BASE" ] ; then
   CATALINA_BASE="$CATALINA_HOME"
