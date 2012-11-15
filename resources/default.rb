@@ -53,7 +53,7 @@ attribute :shutdown_wait, :kind_of => String, :default => "5"
 attribute :bind_address, :kind_of => String, :default => nil
 attribute :manage_config_file, :equal_to => [true, false], :default => false
 attribute :base, :kind_of => String, :default => ""
-attribute :umask, :kind_of => String, :default "022"
+attribute :umask, :kind_of => String, :default => "022"
 
 # we have to set default for the supports attribute
 # in initializer since it is a 'reserved' attribute name
