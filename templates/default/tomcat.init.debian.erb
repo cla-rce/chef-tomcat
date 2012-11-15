@@ -52,6 +52,7 @@ fi
 # Run Tomcat as this user ID and group ID
 TOMCAT_USER=tomcat7
 TOMCAT_GROUP=tomcat7
+TOMCAT_UMASK=022
 
 # The first existing directory is used for JAVA_HOME (if JAVA_HOME is not
 # defined in $DEFAULT)
@@ -89,6 +90,8 @@ fi
 if [ -f "$DEFAULT" ]; then
 	. "$DEFAULT"
 fi
+
+umask $TOMCAT_UMASK
 
 if [ ! -f "$CATALINA_HOME/bin/bootstrap.jar" ]; then
 	log_failure_msg "$NAME is not installed"
@@ -177,7 +180,6 @@ case "$1" in
 		>/dev/null; then
 
 		# Regenerate POLICY_CACHE file
-		umask 022
 		echo "// AUTO-GENERATED FILE from /etc/tomcat7/policy.d/" \
 			> "$POLICY_CACHE"
 		echo ""  >> "$POLICY_CACHE"

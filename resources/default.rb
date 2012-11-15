@@ -27,6 +27,7 @@ attr_accessor  :jmx_access, :jmx_access_file, :jmx_password_file, :jmx_password
 attr_accessor :more_opts, :user, :context_dir, :log_dir, :tmp_dir, :work_dir, :manage_config_file
 attr_accessor :webapp_dir, :base, :pid_file, :use_security_manager, :group, :shutdown_wait
 attr_accessor :bind_address
+attr_accessor :umask
 
 attribute :service_name, :kind_of => String, :name_attribute => true
 attribute :clustered, :equal_to => [true, false], :default => false
@@ -52,7 +53,7 @@ attribute :shutdown_wait, :kind_of => String, :default => "5"
 attribute :bind_address, :kind_of => String, :default => nil
 attribute :manage_config_file, :equal_to => [true, false], :default => false
 attribute :base, :kind_of => String, :default => ""
-
+attribute :umask, :kind_of => String, :default "022"
 
 # we have to set default for the supports attribute
 # in initializer since it is a 'reserved' attribute name
